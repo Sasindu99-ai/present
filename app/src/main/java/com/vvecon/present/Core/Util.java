@@ -3,7 +3,6 @@ package com.vvecon.present.Core;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.text.Editable;
 import android.util.Base64;
 import android.util.Log;
@@ -24,6 +23,8 @@ import com.google.gson.JsonObject;
 import com.squareup.picasso.Picasso;
 import com.vvecon.present.Components.RoundedTransformation;
 import com.vvecon.present.Components.SpinnerItem;
+import com.vvecon.present.View.LoginActivity;
+import com.vvecon.present.View.MainActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.lang.reflect.Type;
@@ -31,10 +32,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class Util {
     private final AppCompatActivity parent;
@@ -429,9 +428,21 @@ public class Util {
         return "";
     }
 
-    // public void copyToClipboard(String text) {
-    //     Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-    //     StringSelection selection = new StringSelection(text);
-    //     clipboard.setContents(selection, null);
-    // }
+    public JsonObject getUser()
+    {
+        JsonObject USER =  this.getDict("USER");
+        if (USER.isEmpty())
+        {
+            this.changeWindow(LoginActivity.class);
+        }
+        return USER;
+    }
+
+    public void checkUser()
+    {
+        JsonObject USER = this.getDict("USER");
+        if (!USER.isEmpty()) {
+            this.changeWindow(MainActivity.class);
+        }
+    }
 }
