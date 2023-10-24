@@ -107,7 +107,7 @@
         android:layout_marginBottom="30dp"
         android:background="@drawable/white_curve_border"
         android:importantForAutofill="no"
-        android:inputType="textVisiblePassword"
+        android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/toLogin"
