@@ -115,12 +115,14 @@ public class LectureActivity extends AppCompatActivity {
 
     private void onAttend(JsonObject api_report) {
         JsonObject result = UTIL.parse(api_report);
-        if (result != null && result.get("result").getAsBoolean()) {
-            UTIL.toast("Attendance marked successfully!");
-            onBackPressed();
-        } else {
-            UTIL.showError("Marking Failed", "Failed to Mark Attendance");
-            attend.setEnabled(true);
-        }
+        runOnUiThread(() -> {
+            if (result != null && result.get("result").getAsBoolean()) {
+                UTIL.toast("Attendance marked successfully!");
+                onBackPressed();
+            } else {
+                UTIL.showError("Marking Failed", "Failed to Mark Attendance");
+                attend.setEnabled(true);
+            }
+        });
     }
 }
