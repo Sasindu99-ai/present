@@ -9,8 +9,8 @@ import java.util.HashMap;
 public class UserModel extends Model {
     public UserModel(AppCompatActivity this_) {
         super(this_);
-        API_URL = "https://presentapi.elit-x.co/";
-        HOST = "user@presentapi.elit-x.co";
+        API_URL = "https://presentapi.vvecon.com/";
+        HOST = "user@presentapi.vvecon.com";
         API_KEY = "mNkgCO77A3Rajm0PsXy7DyJzDrnF9fwGPQKB+PHdLdL9dyvw4V1KIwgBdvq8ylZ2nnA64ZbDrASuH5ZF6Febc+0lpZYyMV";
     }
 

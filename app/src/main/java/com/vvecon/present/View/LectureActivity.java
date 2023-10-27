@@ -105,9 +105,12 @@ public class LectureActivity extends AppCompatActivity {
                     String longitude = Double.toString(longitudeValue);
 
                     CONTROLLER.attend(UTIL.getAsInteger(lecture.get("id")), UTIL.getAsInteger(USER.get("id")), latitude, longitude, this::onAttend);
+                } else {
+                    UTIL.toast("Failed to Mark Attendance!");
                 }
-            });
+            }).addOnFailureListener((e) -> UTIL.toast("Failed to Mark Attendance!")).addOnCanceledListener(() -> UTIL.toast("Failed to Mark Attendance!"));
         }
+
     }
 
     private void onAttend(JsonObject api_report) {
